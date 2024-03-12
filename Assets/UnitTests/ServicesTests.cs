@@ -1,4 +1,5 @@
 using System.Collections;
+using Code.Controllers;
 using Code.Installers;
 using Code.Interfaces;
 using NUnit.Framework;
@@ -71,6 +72,22 @@ namespace UnitTests
             }
 
             spawner.OnObjectSpawned -= OnObjectSpawned;
+        }
+
+        [Test]
+        public void WillSetFilter()
+        {
+            ITextFilter filter = Container.Resolve<ITextFilter>();
+            filter.OnTextFiltered += Assert.NotNull;
+            filter.SetFilter("Test");
+        }
+
+        [Test]
+        public void WillSetEdible()
+        {
+            IEdiblesHolder holder = Container.Resolve<IEdiblesHolder>();
+            holder.AddEdible(new CubeController()); // This is a MonoBehaviour and will produce warning
+            Assert.Greater(holder.Edibles.Count, 0);
         }
     }
 }
