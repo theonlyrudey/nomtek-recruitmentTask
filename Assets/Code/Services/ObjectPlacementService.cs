@@ -29,6 +29,7 @@ namespace Code.Services
             if(placeableObject == null) return;
             placeableObject.CancelPlacement();
             OnPlacementCancelled?.Invoke(placeableObjectGameObject);
+            placeableObject = null;
         }
 
         private void AssignPlaceableObject(GameObject obj)

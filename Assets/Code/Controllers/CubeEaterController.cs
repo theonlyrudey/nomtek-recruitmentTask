@@ -20,6 +20,8 @@ namespace Code.Controllers
         public void Place()
         {
             collider.isTrigger = true;
+            rigidbody.velocity = Vector3.zero;
+            rigidbody.angularVelocity = Vector3.zero;
             rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             movementController = new CubeEaterMovementController(transform, movementSpeed, rotationSpeed);
             ediblesHolder.OnEdibleAdded += OnEdiblesChanged;
@@ -51,6 +53,10 @@ namespace Code.Controllers
         private void OnEdiblesChanged()
         {
             isMoving = ediblesHolder.Edibles.Count > 0;
+            if (isMoving) return;
+            
+            rigidbody.velocity = Vector3.zero;
+            rigidbody.angularVelocity = Vector3.zero;
         }
         
         private void CalculateTargetPosition()

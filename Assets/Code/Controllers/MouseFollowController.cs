@@ -12,6 +12,7 @@ namespace Code.Controllers
         [Inject] private IObjectPlacement objectPlacement;
 
         private int floorMask;
+        private Vector3 newPosition = Vector3.zero;
         private void Awake()
         {
             floorMask = LayerMask.GetMask("Floor");
@@ -23,6 +24,7 @@ namespace Code.Controllers
         private void OnObjectSpawned(GameObject obj)
         {
             transformFollower.AssignTransform(obj.transform);
+            newPosition = obj.transform.position;
         }
 
         private void ReleaseObject(GameObject obj)
@@ -35,10 +37,10 @@ namespace Code.Controllers
             if (mainCamera == null || !transformFollower.IsFollowing) return;
             var mousePosition = Input.mousePosition;
             var mouseRay = mainCamera.ScreenPointToRay(mousePosition);
-            Debug.DrawRay(mouseRay.origin, mouseRay.direction * 100, Color.red);
-            if (!Physics.Raycast(mouseRay, out var hit,Mathf.Infinity,floorMask)) return;
-
-            var newPosition = hit.point;
+            if (Physics.Raycast(mouseRay, out var hit, Mathf.Infinity, floorMask))
+            {
+                newPosition = hit.point;
+            }
             transformFollower.UpdatePosition(newPosition);
         }
 
