@@ -17,6 +17,7 @@ namespace Code.UI.Controllers
         
         [Inject] private IObjectsLoader objectsLoader;
         [Inject] private IObjectSpawner objectSpawner;
+        [Inject] private IObjectPlacement objectPlacement;
 
         private List<ObjectData> objectsData;
         private Dictionary<string, List<SpawnableObjectElement>> elements = new();
@@ -24,10 +25,12 @@ namespace Code.UI.Controllers
         private async void Awake()
         {
             objectsData = objectsLoader.LoadObjects();
+            objectPlacement.OnObjectPlaced += OnObjectPlaced;
+            objectPlacement.OnPlacementCancelled += OnPlacementCancelled;
             await CreateElements();
             view.Show();
         }
-
+        
         private async Task CreateElements()
         {
             foreach (var objectData in objectsData)
@@ -54,12 +57,23 @@ namespace Code.UI.Controllers
         {
             if (!elements.ContainsKey(objectName))
             {
-                elements.Add(objectName, new List<SpawnableObjectElement>(){element});
+                elements.Add(objectName, new List<SpawnableObjectElement>{element});
             }
             else
             {
                 elements[objectName].Add(element);
             }
         }
+        
+        private void OnPlacementCancelled()
+        {
+            view.Show();
+        }
+
+        private void OnObjectPlaced()
+        {
+            view.Show();
+        }
+
     }
 }

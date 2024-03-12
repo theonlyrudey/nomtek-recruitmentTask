@@ -9,12 +9,15 @@ namespace Code.Controllers
         [SerializeField] private Camera mainCamera;
         [Inject] private ITransformFollower transformFollower;
         [Inject] private IObjectSpawner objectSpawner;
+        [Inject] private IObjectPlacement objectPlacement;
 
         private int floorMask;
         private void Awake()
         {
             floorMask = LayerMask.GetMask("Floor");
             objectSpawner.OnObjectSpawned += OnObjectSpawned;
+            objectPlacement.OnObjectPlaced += ReleaseObject;
+            objectPlacement.OnPlacementCancelled += ReleaseObject;
         }
 
         private void OnObjectSpawned(GameObject obj)
@@ -22,6 +25,11 @@ namespace Code.Controllers
             transformFollower.AssignTransform(obj.transform);
         }
 
+        private void ReleaseObject()
+        {
+            transformFollower.ReleaseObject();
+        }
+        
         private void Update()
         {
             if (mainCamera == null || !transformFollower.IsFollowing) return;

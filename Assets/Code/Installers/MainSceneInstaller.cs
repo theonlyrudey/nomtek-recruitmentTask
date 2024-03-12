@@ -11,6 +11,7 @@ namespace Code.Installers
             Container.Bind<IObjectSpawner>().To<ObjectSpawnerService>().AsSingle();
             Container.Bind<ITransformFollower>().To<TransformFollowerService>().AsSingle();
             Container.Bind<IObjectsLoader>().To<ObjectsLoaderService>().AsSingle();
+            Container.Bind<IObjectPlacement>().To<ObjectPlacementService>().AsSingle();
         }
     }
 }
