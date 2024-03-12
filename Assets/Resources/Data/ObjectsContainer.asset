@@ -46,3 +46,25 @@ MonoBehaviour:
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 1
+  - name: Green Cube version 2
+    thumbnail:
+      m_AssetGUID: 755dd976452a14e9ca90c7d3d3da1d19
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    prefab:
+      m_AssetGUID: 35991d376e68d4224ac8c5e63900167e
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+  - name: Cubes Eater
+    thumbnail:
+      m_AssetGUID: a0285bb51e7da4c059ffb4aeeb118d55
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    prefab:
+      m_AssetGUID: a693f3207e69641f798aadb73e282c2b
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0

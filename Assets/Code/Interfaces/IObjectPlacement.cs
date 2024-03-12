@@ -1,11 +1,12 @@
 using System;
+using UnityEngine;
 
 namespace Code.Interfaces
 {
     public interface IObjectPlacement
     {
-        event Action OnObjectPlaced;
-        event Action OnPlacementCancelled;
+        event Action<GameObject> OnObjectPlaced;
+        event Action<GameObject> OnPlacementCancelled;
         void PlaceObject();
         void CancelPlacement();
     }

@@ -52,6 +52,21 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a693f3207e69641f798aadb73e282c2b
+    m_Address: Assets/Prefabs/Objects/CubeEater.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3578b56f094e845ef9759d7a13eddc2a
+    m_Address: Assets/Materials/LightGrey.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4deb8a296f91f4fe9a525b50543c7637
+    m_Address: Assets/Materials/Yellow.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f32aeb7c2f14842f3b49b9f3a36e4004, type: 2}
   m_SchemaSet:

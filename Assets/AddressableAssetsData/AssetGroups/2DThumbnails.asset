@@ -32,6 +32,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0285bb51e7da4c059ffb4aeeb118d55
+    m_Address: Assets/Art/2D_Thumbnails/cube_eater.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f32aeb7c2f14842f3b49b9f3a36e4004, type: 2}
   m_SchemaSet:

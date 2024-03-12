@@ -9,7 +9,7 @@ using Zenject;
 namespace UnitTests
 {
     [TestFixture]
-    public class DataLoadingTests : ZenjectUnitTestFixture
+    public class ServicesTests : ZenjectUnitTestFixture
     {
         [SetUp]
         public void CommonInstall()

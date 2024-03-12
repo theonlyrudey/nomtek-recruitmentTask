@@ -6,10 +6,11 @@ namespace Code.Services
 {
     public class ObjectPlacementService : IObjectPlacement
     {
-        public event Action OnObjectPlaced;
-        public event Action OnPlacementCancelled;
+        public event Action<GameObject> OnObjectPlaced;
+        public event Action<GameObject> OnPlacementCancelled;
 
         private IPlaceableObject placeableObject;
+        private GameObject placeableObjectGameObject;
         
         public ObjectPlacementService(IObjectSpawner objectSpawner)
         {
@@ -20,18 +21,19 @@ namespace Code.Services
         {
             if(placeableObject == null) return;
             placeableObject.Place();
-            OnObjectPlaced?.Invoke();
+            OnObjectPlaced?.Invoke(placeableObjectGameObject);
         }
 
         public void CancelPlacement()
         {
             if(placeableObject == null) return;
             placeableObject.CancelPlacement();
-            OnPlacementCancelled?.Invoke();
+            OnPlacementCancelled?.Invoke(placeableObjectGameObject);
         }
 
         private void AssignPlaceableObject(GameObject obj)
         {
+            placeableObjectGameObject = obj;
             var placeableObject = obj.GetComponent<IPlaceableObject>();
             if (placeableObject == null) return;
             this.placeableObject = placeableObject;

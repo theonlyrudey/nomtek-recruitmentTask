@@ -25,7 +25,7 @@ namespace Code.Controllers
             transformFollower.AssignTransform(obj.transform);
         }
 
-        private void ReleaseObject()
+        private void ReleaseObject(GameObject obj)
         {
             transformFollower.ReleaseObject();
         }

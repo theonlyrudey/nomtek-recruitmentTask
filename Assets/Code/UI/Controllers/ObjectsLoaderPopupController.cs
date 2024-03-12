@@ -67,12 +67,12 @@ namespace Code.UI.Controllers
             }
         }
 
-        private void OnPlacementCancelled()
+        private void OnPlacementCancelled(GameObject obj)
         {
             view.Show();
         }
 
-        private void OnObjectPlaced()
+        private void OnObjectPlaced(GameObject obj)
         {
             view.Show();
         }
