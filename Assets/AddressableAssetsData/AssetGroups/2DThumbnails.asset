@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: 2DThumbnails
+  m_EditorClassIdentifier: 
+  m_GroupName: 2DThumbnails
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 5a63e81320c8645b2980080653471e93
+  m_SerializeEntries:
+  - m_GUID: ad9c46889d75746178cb5f5638f567fd
+    m_Address: Assets/Art/2D_Thumbnails/cube_blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 755dd976452a14e9ca90c7d3d3da1d19
+    m_Address: Assets/Art/2D_Thumbnails/cube_green.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ddf7fae864ecb43fd84ea8032b460cd8
+    m_Address: Assets/Art/2D_Thumbnails/cube_red.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f32aeb7c2f14842f3b49b9f3a36e4004, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 660dea4c30c284cbead92bc3a6a3d0d4, type: 2}
+    - {fileID: 11400000, guid: b6a06b203694041d7a91474e08fcf653, type: 2}

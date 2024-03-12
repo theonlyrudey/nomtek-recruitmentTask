@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d1297f139e54eb99844851cd4a3912, type: 3}
+  m_Name: ObjectsContainer
+  m_EditorClassIdentifier: 
+  objectDataList:
+  - name: Blue Cube
+    thumbnail:
+      m_AssetGUID: ad9c46889d75746178cb5f5638f567fd
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    prefab:
+      m_AssetGUID: cb8f6d68161794973b890fbcc85d518f
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - name: Red Cube
+    thumbnail:
+      m_AssetGUID: ddf7fae864ecb43fd84ea8032b460cd8
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    prefab:
+      m_AssetGUID: bf957475326814f53a84712bbdda0823
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+  - name: Green Cube
+    thumbnail:
+      m_AssetGUID: 755dd976452a14e9ca90c7d3d3da1d19
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    prefab:
+      m_AssetGUID: 35991d376e68d4224ac8c5e63900167e
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
