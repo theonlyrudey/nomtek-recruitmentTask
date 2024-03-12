@@ -7,6 +7,8 @@ namespace Code.Services
     {
         private Transform currentObject;
 
+        public bool IsFollowing => currentObject != null;
+        
         public void UpdatePosition(Vector3 newPosition)
         {
             if (currentObject != null)

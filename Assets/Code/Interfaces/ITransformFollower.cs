@@ -7,5 +7,6 @@ namespace Code.Interfaces
         void UpdatePosition(Vector3 newPosition);
         void ReleaseObject();
         void AssignTransform(Transform transform);
+        bool IsFollowing { get; }
     }
 }

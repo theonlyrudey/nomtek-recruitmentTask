@@ -10,7 +10,6 @@ namespace Code.Installers
         {
             Container.Bind<IObjectSpawner>().To<ObjectSpawnerService>().AsSingle();
             Container.Bind<ITransformFollower>().To<TransformFollowerService>().AsSingle();
-            Container.Bind<IRaycaster>().To<FloorRaycasterService>().AsSingle();
             Container.Bind<IObjectsLoader>().To<ObjectsLoaderService>().AsSingle();
         }
     }
