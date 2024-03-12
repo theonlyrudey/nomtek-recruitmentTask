@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275db2bbed00a4f9cb4059a08a846217, type: 3}
   m_Name: MainScriptableObjectsInstaller
   m_EditorClassIdentifier: 
+  objectsContainer: {fileID: 11400000, guid: 5a3c92724bf244c40a12bea5eca38a4f, type: 2}
