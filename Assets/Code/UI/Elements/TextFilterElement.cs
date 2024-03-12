@@ -1,14 +1,16 @@
 using System;
+using Code.Interfaces;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace Code.UI.Elements
 {
     public class TextFilterElement : MonoBehaviour
     {
         [SerializeField] private TMP_InputField inputField;
-        public event Action<string> OnValueChanged;
-
+        [Inject] private ITextFilter textFilter;
+        
         private void OnEnable()
         {
             inputField.onValueChanged.AddListener(OnValueChangedHandler);
@@ -16,7 +18,7 @@ namespace Code.UI.Elements
 
         private void OnValueChangedHandler(string value)
         {
-            OnValueChanged?.Invoke(value);
+            textFilter.SetFilter(value);
         }
     }
 }

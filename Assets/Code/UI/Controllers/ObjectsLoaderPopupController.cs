@@ -18,6 +18,7 @@ namespace Code.UI.Controllers
         [Inject] private IObjectsLoader objectsLoader;
         [Inject] private IObjectSpawner objectSpawner;
         [Inject] private IObjectPlacement objectPlacement;
+        [Inject] private ITextFilter textFilter;
 
         private List<ObjectData> objectsData;
         private Dictionary<string, List<SpawnableObjectElement>> elements = new();
@@ -27,10 +28,11 @@ namespace Code.UI.Controllers
             objectsData = objectsLoader.LoadObjects();
             objectPlacement.OnObjectPlaced += OnObjectPlaced;
             objectPlacement.OnPlacementCancelled += OnPlacementCancelled;
+            textFilter.OnTextFiltered += OnTextFiltered;
             await CreateElements();
             view.Show();
         }
-        
+
         private async Task CreateElements()
         {
             foreach (var objectData in objectsData)
@@ -46,7 +48,7 @@ namespace Code.UI.Controllers
                 AddElement(objectData.Name, element);
             }
         }
-        
+
         private void OnElementButtonClicked(string label)
         {
             StartCoroutine(objectSpawner.SpawnObject(Vector3.zero, objectsData.First(obj => obj.Name == label).Prefab));
@@ -64,7 +66,7 @@ namespace Code.UI.Controllers
                 elements[objectName].Add(element);
             }
         }
-        
+
         private void OnPlacementCancelled()
         {
             view.Show();
@@ -75,5 +77,16 @@ namespace Code.UI.Controllers
             view.Show();
         }
 
+        private void OnTextFiltered(string obj)
+        {
+            foreach (var kvp in elements)
+            {
+                bool elementEnabled = kvp.Key.Contains(obj);
+                foreach (var element in kvp.Value)
+                {
+                    element.Enabled = elementEnabled;
+                }
+            }
+        }
     }
 }

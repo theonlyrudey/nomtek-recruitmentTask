@@ -14,6 +14,11 @@ namespace Code.UI.Elements
         private string label;
         
         public event Action<string> OnButtonClicked;
+
+        public bool Enabled
+        {
+            set => gameObject.SetActive(value);
+        }
         
         public void Initialize(string label, Sprite thumbnail)
         {

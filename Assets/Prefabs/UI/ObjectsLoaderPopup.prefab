@@ -275,8 +275,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2162139852756175758}
   m_HandleRect: {fileID: 288473662463492331}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.5769231
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -929,7 +929,7 @@ RectTransform:
   m_GameObject: {fileID: 7611409580810402493}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 549611143332776496}
@@ -955,13 +955,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb0a27c765414353920d5a4f9d251abb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contentParent: {fileID: 0}
-  viewRectTransform: {fileID: 0}
-  showAnimationDuration: 0
-  hideAnimationDuration: 0
+  contentParent: {fileID: 6378003490044856507}
+  viewRectTransform: {fileID: 5414765846302249913}
+  showAnimationDuration: 0.25
+  hideAnimationDuration: 0.25
   animationCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -999,7 +1017,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 143111.9}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2763083882849306799
@@ -1050,6 +1068,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3506366677020107385}
   - component: {fileID: 3987559294407198289}
+  - component: {fileID: 7709998597888151283}
   - component: {fileID: 7479579616201996194}
   - component: {fileID: 5686965444068880178}
   m_Layer: 5
@@ -1087,6 +1106,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8174413857698768066}
   m_CullTransparentMesh: 1
+--- !u!114 &7709998597888151283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8174413857698768066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c57345aa65e44993be6ff7eb27eead6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputField: {fileID: 5686965444068880178}
 --- !u!114 &7479579616201996194
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,3 +1,5 @@
+using System;
+using Code.UI.Elements;
 using DG.Tweening;
 using UnityEngine;
 
@@ -10,7 +12,7 @@ namespace Code.UI.Views
         [SerializeField] private float showAnimationDuration;
         [SerializeField] private float hideAnimationDuration;
         [SerializeField] private AnimationCurve animationCurve;
-        
+
         public Transform ContentParent => contentParent;
 
         public void Show()

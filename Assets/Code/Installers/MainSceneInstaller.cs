@@ -12,6 +12,7 @@ namespace Code.Installers
             Container.Bind<ITransformFollower>().To<TransformFollowerService>().AsSingle();
             Container.Bind<IObjectsLoader>().To<ObjectsLoaderService>().AsSingle();
             Container.Bind<IObjectPlacement>().To<ObjectPlacementService>().AsSingle();
+            Container.Bind<ITextFilter>().To<TextFilterService>().AsSingle();
         }
     }
 }
