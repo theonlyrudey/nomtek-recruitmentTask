@@ -8,6 +8,7 @@ namespace Code.Installers
     {
         public override void InstallBindings()
         {
+            Container.Bind<IObjectsListUI>().To<ObjectsListUIService>().AsSingle();
             Container.Bind<IObjectSpawner>().To<ObjectSpawnerService>().AsSingle();
             Container.Bind<IObjectPlacement>().To<ObjectPlacementService>().AsSingle();
             Container.Bind<IEdiblesHolder>().To<EdiblesHolderService>().AsSingle().NonLazy();

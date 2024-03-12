@@ -6,6 +6,7 @@ using Code.Interfaces;
 using Code.UI.Elements;
 using Code.UI.Views;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using Zenject;
 
 namespace Code.UI.Controllers
@@ -13,40 +14,22 @@ namespace Code.UI.Controllers
     public class ObjectsLoaderPopupController : MonoBehaviour
     {
         [SerializeField] private ObjectsLoaderPopupView view;
-        [SerializeField] private SpawnableObjectElement spawnableObjectElement;
+        [SerializeField] private AssetReferenceGameObject spawnableObjectElement;
         
         [Inject] private IObjectsLoader objectsLoader;
         [Inject] private IObjectSpawner objectSpawner;
         [Inject] private IObjectPlacement objectPlacement;
         [Inject] private ITextFilter textFilter;
+        [Inject] private IObjectsListUI objectsListUI;
 
         private List<ObjectData> objectsData;
-        private Dictionary<string, List<SpawnableObjectElement>> elements = new();
         
         private async void Awake()
         {
             objectsData = objectsLoader.LoadObjects();
-            objectPlacement.OnObjectPlaced += OnObjectPlaced;
-            objectPlacement.OnPlacementCancelled += OnPlacementCancelled;
-            textFilter.OnTextFiltered += OnTextFiltered;
-            await CreateElements();
+            SubscribeEvents();
+            await objectsListUI.CreateObjects(spawnableObjectElement, objectsData, view.ContentParent);
             view.Show();
-        }
-
-        private async Task CreateElements()
-        {
-            foreach (var objectData in objectsData)
-            {
-                var thumbnailLoadTask = objectData.Thumbnail.LoadAssetAsync().Task;
-                await thumbnailLoadTask;
-                
-                var thumbnail = thumbnailLoadTask.Result;
-                var element = Instantiate(spawnableObjectElement, view.ContentParent);
-                element.Initialize(objectData.Name, thumbnail);
-                element.OnButtonClicked += OnElementButtonClicked;
-                
-                AddElement(objectData.Name, element);
-            }
         }
 
         private void OnElementButtonClicked(string label)
@@ -55,38 +38,17 @@ namespace Code.UI.Controllers
             view.Hide();
         }
 
-        private void AddElement(string objectName, SpawnableObjectElement element)
-        {
-            if (!elements.ContainsKey(objectName))
-            {
-                elements.Add(objectName, new List<SpawnableObjectElement>{element});
-            }
-            else
-            {
-                elements[objectName].Add(element);
-            }
-        }
-
-        private void OnPlacementCancelled(GameObject obj)
+        private void OnPlacementStatusChanged(GameObject obj)
         {
             view.Show();
         }
 
-        private void OnObjectPlaced(GameObject obj)
+        private void SubscribeEvents()
         {
-            view.Show();
-        }
-
-        private void OnTextFiltered(string obj)
-        {
-            foreach (var kvp in elements)
-            {
-                bool elementEnabled = kvp.Key.Contains(obj);
-                foreach (var element in kvp.Value)
-                {
-                    element.Enabled = elementEnabled;
-                }
-            }
+            objectPlacement.OnObjectPlaced += OnPlacementStatusChanged;
+            objectPlacement.OnPlacementCancelled += OnPlacementStatusChanged;
+            textFilter.OnTextFiltered += objectsListUI.SetFilter;
+            objectsListUI.OnElementButtonClicked += OnElementButtonClicked;
         }
     }
 }
