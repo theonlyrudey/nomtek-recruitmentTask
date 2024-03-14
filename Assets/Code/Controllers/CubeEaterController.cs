@@ -16,6 +16,7 @@ namespace Code.Controllers
         private CubeEaterMovementController movementController;
         private Vector3 targetPosition;
         private bool isMoving;
+        private const float EATER_Y_POSITION_THRESHOLD = 0.05f;
         
         public void Place()
         {
@@ -38,7 +39,7 @@ namespace Code.Controllers
         {
             if (movementController == null || !isMoving) return;
             CalculateTargetPosition();
-            if (transform.position.y - targetPosition.y > 0.05f) return;
+            if (transform.position.y - targetPosition.y > EATER_Y_POSITION_THRESHOLD) return;
             var direction = targetPosition - transform.position;
             movementController.Move(direction.normalized, Time.deltaTime);
             movementController.RotateTowards(targetPosition, Time.deltaTime);
