@@ -14,57 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectDataList:
   - name: Blue Cube
-    thumbnail:
-      m_AssetGUID: ad9c46889d75746178cb5f5638f567fd
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 0
-    prefab:
-      m_AssetGUID: cb8f6d68161794973b890fbcc85d518f
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 0
+    content: {fileID: 11400000, guid: b06ab8d358e9c4f1cad21533ff4be5f3, type: 2}
   - name: Red Cube
-    thumbnail:
-      m_AssetGUID: ddf7fae864ecb43fd84ea8032b460cd8
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 1
-    prefab:
-      m_AssetGUID: bf957475326814f53a84712bbdda0823
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 1
+    content: {fileID: 11400000, guid: 0cc9f97387f7c40ad8fa833638be5fe4, type: 2}
   - name: Green Cube
-    thumbnail:
-      m_AssetGUID: 755dd976452a14e9ca90c7d3d3da1d19
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 1
-    prefab:
-      m_AssetGUID: 35991d376e68d4224ac8c5e63900167e
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 1
+    content: {fileID: 11400000, guid: bdcd569e8992948219f86667da9bdfa7, type: 2}
   - name: Green Cube version 2
-    thumbnail:
-      m_AssetGUID: 755dd976452a14e9ca90c7d3d3da1d19
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 1
-    prefab:
-      m_AssetGUID: 35991d376e68d4224ac8c5e63900167e
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 1
+    content: {fileID: 11400000, guid: bdcd569e8992948219f86667da9bdfa7, type: 2}
   - name: Cubes Eater
-    thumbnail:
-      m_AssetGUID: a0285bb51e7da4c059ffb4aeeb118d55
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 0
-    prefab:
-      m_AssetGUID: a693f3207e69641f798aadb73e282c2b
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 0
+    content: {fileID: 11400000, guid: d951d0d3f226b4dbf99e01e7117e5a34, type: 2}

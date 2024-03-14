@@ -17,9 +17,17 @@ public class ObjectsListUIService : IObjectsListUI
     {
         foreach (var objectData in objectsData)
         {
-            var thumbnailLoadTask = objectData.Thumbnail.LoadAssetAsync().Task;
-            await thumbnailLoadTask;
-            var thumbnail = thumbnailLoadTask.Result;
+            Sprite thumbnail;
+            if (objectData.Thumbnail.Asset != null)
+            {
+                thumbnail = (Sprite)objectData.Thumbnail.Asset;
+            }
+            else
+            {
+                var thumbnailLoadTask = objectData.Thumbnail.LoadAssetAsync().Task;
+                await thumbnailLoadTask;
+                thumbnail = thumbnailLoadTask.Result;
+            }
 
             var elementLoadTask = prefab.InstantiateAsync(parent).Task;
             await elementLoadTask;

@@ -7,11 +7,10 @@ namespace Code.Data
     public class ObjectData
     {
         [SerializeField] private string name;
-        [SerializeField] private AssetReferenceSprite thumbnail;
-        [SerializeField] private AssetReferenceGameObject prefab;
+        [SerializeField] private ObjectContentAsset content;
         
         public string Name => name;
-        public AssetReferenceSprite Thumbnail => thumbnail;
-        public AssetReferenceGameObject Prefab => prefab;
+        public AssetReferenceSprite Thumbnail => content.Thumbnail;
+        public AssetReferenceGameObject Prefab => content.Prefab;
     }
 }
