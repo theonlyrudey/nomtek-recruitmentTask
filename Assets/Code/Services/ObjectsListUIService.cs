@@ -36,7 +36,7 @@ public class ObjectsListUIService : IObjectsListUI
     {
         foreach (var kvp in elements)
         {
-            bool elementEnabled = kvp.Key.Contains(text);
+            bool elementEnabled = kvp.Key.ToLower().Contains(text.ToLower());
             foreach (var element in kvp.Value)
             {
                 element.Enabled = elementEnabled;
