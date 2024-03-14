@@ -38,6 +38,7 @@ namespace Code.Controllers
         {
             if (movementController == null || !isMoving) return;
             CalculateTargetPosition();
+            if (transform.position.y - targetPosition.y > 0.05f) return;
             var direction = targetPosition - transform.position;
             movementController.Move(direction.normalized, Time.deltaTime);
             movementController.RotateTowards(targetPosition, Time.deltaTime);
