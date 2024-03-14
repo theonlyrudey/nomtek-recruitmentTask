@@ -14,15 +14,25 @@ namespace Code.UI.Views
         [SerializeField] private AnimationCurve animationCurve;
 
         public Transform ContentParent => contentParent;
+        
+        private float shownXPosition;
+        private float hiddenXPosition;
+        
+        private void Awake()
+        {
+            shownXPosition = viewRectTransform.anchoredPosition.x;
+            hiddenXPosition = -shownXPosition;
+            viewRectTransform.DOAnchorPosX(hiddenXPosition, 0);
+        }
 
         public void Show()
         {
-            viewRectTransform.DOScale(Vector3.one, showAnimationDuration).SetEase(animationCurve);
+            viewRectTransform.DOAnchorPosX(shownXPosition ,showAnimationDuration).SetEase(animationCurve);
         }
         
         public void Hide()
         {
-            viewRectTransform.DOScale(Vector3.zero, hideAnimationDuration).SetEase(animationCurve);
+            viewRectTransform.DOAnchorPosX(hiddenXPosition, hideAnimationDuration).SetEase(animationCurve);
         }
     }
 }
