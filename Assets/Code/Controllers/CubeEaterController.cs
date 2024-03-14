@@ -45,8 +45,19 @@ namespace Code.Controllers
 
         private void OnTriggerEnter(Collider other)
         {
+            HandleEdibleCollision(other);
+        }
+
+        private void OnTriggerStay(Collider other)
+        {
+            HandleEdibleCollision(other);
+        }
+
+        private void HandleEdibleCollision(Collider other)
+        {
+            if(other == null) return;
             IEdible edible = other.GetComponent<IEdible>();
-            if (edible == null) return;
+            if (edible == null || !edible.Initialized) return;
             edible.GetEaten();
         }
 
