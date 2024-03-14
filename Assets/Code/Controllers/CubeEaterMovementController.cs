@@ -7,17 +7,22 @@ namespace Code.Controllers
         private readonly Transform eaterTransform;
         private readonly float movementSpeed;
         private readonly float rotationSpeed;
+        private readonly float yPosition;
         
-        public CubeEaterMovementController(Transform eaterTransform, float movementSpeed, float rotationSpeed)
+        public CubeEaterMovementController(Transform eaterTransform, float movementSpeed, float rotationSpeed, float yPosition)
         {
             this.eaterTransform = eaterTransform;
             this.movementSpeed = movementSpeed;
             this.rotationSpeed = rotationSpeed;
+            this.yPosition = yPosition;
         }
         
         public void Move(Vector3 direction, float deltaTime)
         {
-            eaterTransform.position += direction * (movementSpeed * deltaTime);
+            var position = eaterTransform.position;
+            position += direction * (movementSpeed * deltaTime);
+            position.y = yPosition;
+            eaterTransform.position = position;
         }
         
         public void RotateTowards(Vector3 position, float deltaTime)

@@ -17,6 +17,7 @@ namespace Code.Controllers
         private Vector3 targetPosition;
         private bool isMoving;
         private const float EATER_Y_POSITION_THRESHOLD = 0.05f;
+        private float eaterYPosition;
         
         public void Place()
         {
@@ -24,7 +25,7 @@ namespace Code.Controllers
             rigidbody.velocity = Vector3.zero;
             rigidbody.angularVelocity = Vector3.zero;
             rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-            movementController = new CubeEaterMovementController(transform, movementSpeed, rotationSpeed);
+            movementController = new CubeEaterMovementController(transform, movementSpeed, rotationSpeed, transform.position.y);
             ediblesHolder.OnEdibleAdded += OnEdiblesChanged;
             ediblesHolder.OnEdibleRemoved += OnEdiblesChanged;
             OnEdiblesChanged();
